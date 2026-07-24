@@ -9,23 +9,23 @@ export default async function status(request, response) {
   const serverVersionResult = await database.query("SHOW server_version;");
   const serverVersionValue = serverVersionResult.rows[0].server_version;
 
-  const maxConnResult = await database.query("SHOW max_connections;")
+  const maxConnResult = await database.query("SHOW max_connections;");
   const maxConnValue = parseInt(maxConnResult.rows[0].max_connections);
 
   const databaseName = process.env.POSTGRES_DB;
   const openedConnResult = await database.query({
     text: "SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;",
-    values: [databaseName]
-  })
+    values: [databaseName],
+  });
   const openedConnValue = openedConnResult.rows[0].count;
 
-  return response.status(200).json({ 
+  return response.status(200).json({
     soma: somaValue,
     updated_at: updatedAt,
     dependencies: {
       version: serverVersionValue,
       max_connections: maxConnValue,
-      opened_connections: openedConnValue
-    }
-   });
+      opened_connections: openedConnValue,
+    },
+  });
 }
