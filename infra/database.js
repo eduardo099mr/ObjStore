@@ -13,6 +13,7 @@ async function query(queryObject) {
     await client.end();
   }
 }
+
 async function getNewClient() {
   const client = new Client({
     host: process.env.POSTGRES_HOST,
