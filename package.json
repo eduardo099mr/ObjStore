@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write ."
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "next": "^13.1.6"
+  },
+  "devDependencies": {
+    "prettier": "^3.7.4"
   }
 }
