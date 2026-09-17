@@ -6,16 +6,25 @@
   "scripts": {
     "dev": "next dev",
     "lint:prettier:check": "prettier --check .",
-    "lint:prettier:fix": "prettier --write ."
+    "lint:prettier:fix": "prettier --write .",
+    "prepare": "husky",
+    "commit": "cz"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "commitizen": "^4.3.2",
     "next": "^13.1.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
+    "husky": "^9.1.7",
     "prettier": "^3.7.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
