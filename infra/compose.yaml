@@ -1,6 +1,7 @@
-services: 
-  database: 
+services:
+  database:
     image: "postgres:16.0-alpine3.18"
+    container_name: "objstore-db"
     env_file:
       - ../.env.development
     ports:

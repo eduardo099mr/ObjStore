@@ -7,7 +7,7 @@ async function getNewClient() {
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
-    ssl: process.env.NODE_ENV === "production" ? true:false
+    ssl: process.env.NODE_ENV === "production" ? true : false,
   });
   await client.connect();
   return client;
@@ -19,17 +19,17 @@ async function query(queryObject) {
     client = await getNewClient();
     const result = await client.query(queryObject);
     return result;
-  }catch (error) {
+  } catch (error) {
     console.error(error);
     throw error;
-  }finally{
+  } finally {
     await client.end();
   }
 }
 
 const database = {
   query,
-  getNewClient
-}
+  getNewClient,
+};
 
 export default database;
