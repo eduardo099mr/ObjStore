@@ -16,7 +16,7 @@ export default async function status(request, response) {
   });
   const openedConnResult = openedConnValue.rows[0].count;
 
-  response.status(200).json({
+  return response.status(200).json({
     updated_at: updatedAt,
     dependencies: {
       version: svVersionResult,
