@@ -7,7 +7,9 @@ beforeAll(async () => {
 });
 
 test("should return status OK", async () => {
-  const response = await fetch("http://localhost:3000/api/v1/migrations");
+  const response = await fetch("http://localhost:3000/api/v1/migrations", {
+    method: "POST",
+  });
   const responseBody = await response.json();
 
   console.log(response.status);
@@ -18,7 +20,7 @@ test("should return status OK", async () => {
   expect(responseBody.length).toBeGreaterThan(0);
 
   // SECOND REQUEST TO CHECK IF THE MIGRATIONS WERE ALREADY APPLIED
-  
+
   const response2 = await fetch("http://localhost:3000/api/v1/migrations", {
     method: "POST",
   });
