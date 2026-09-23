@@ -23,6 +23,7 @@
     "commitizen": "^4.3.2",
     "dotenv": "^18.0.1",
     "next": "^13.1.6",
+    "node-pg-migrate": "^7.9.1",
     "pg": "^8.11.3"
   },
   "devDependencies": {
